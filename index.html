@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>Click Me app</title>
+	<style type="text/css">
+		table, th, td {
+		  border: 1px solid black;
+		}
+
+		/* red, green, blue CSS classes */
+		.red{background-color: red;}
+		.green{background-color: green;}
+		.blue{background-color: blue;}
+	</style>
+</head>
+<body>
+	<table style="width:100%">
+	  <tr>
+	    <td>Jill</td>
+	    <td>Smith</td>
+	    <td>50</td>
+	  </tr>
+	  <tr>
+	    <td>Eve</td>
+	    <td>Jackson</td>
+	    <td>94</td>
+	  </tr>
+	  <tr>
+	    <td>John</td>
+	    <td>Doe</td>
+	    <td>80</td>
+	  </tr>
+	</table><br>
+
+	<!-- Count Buttons -->
+	<button onclick="countRed()">Red</button>
+	<button onclick="countGreen()">Green</button>
+	<button onclick="countBlue()">Blue</button>
+
+	<!-- Data -->
+	<p>Red = <span id="red"></span></p>
+	<p>Green = <span id="green"></span></p>
+	<p>Blue = <span id="blue"></span></p>
+
+	<!-- Buttons -->
+	<button onclick="calcTotal()">Total</button> = <span id="total"></span><br>
+	<p><button onclick="location.reload()">Clear</button></p>
+
+	<!-- JavaScript -->
+	<script type="text/javascript">
+		function countRed(){
+
+			/*
+				'Math.random' gives random numbers in decimal
+				'Math.floor' turns decimals to integer
+			*/ 
+			element = document.getElementsByTagName('td')[Math.floor(Math.random() * 9)];
+
+			// Adding 'red CSS' class
+			element.classList.add('red');
+
+			redClass = document.getElementsByClassName('red').length;
+			console.log(redClass);
+			document.getElementById('red').innerHTML = redClass;
+		}
+
+		function countGreen(){
+			element = document.getElementsByTagName('td')[Math.floor(Math.random() * 9)];
+
+			// Adding 'green CSS' class
+			element.classList.add('green');
+
+			greenClass = document.getElementsByClassName('green').length;
+			console.log(greenClass);
+			document.getElementById('green').innerHTML = greenClass;
+		}
+
+		function countBlue(){
+			element = document.getElementsByTagName('td')[Math.floor(Math.random() * 9)];
+
+			// Adding 'blue CSS' class
+			element.classList.add('blue');
+
+			blueClass = document.getElementsByClassName('blue').length;
+			console.log(blueClass);
+			document.getElementById('blue').innerHTML = blueClass;
+		}
+
+		// calculating total
+		function calcTotal(){
+			total = redClass + greenClass + blueClass;
+			console.log(total);
+			document.getElementById('total').innerHTML = total;
+		}
+	</script>
+</body>
+</html>
